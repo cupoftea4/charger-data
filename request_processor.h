@@ -3,7 +3,7 @@
 
 #include "charger.h"
 const char HelpMessage[] PROGMEM  = "To start charging set type of battery. \n\
-  a - get all; ({current}, {voltage}, {needed current}, {pwm}, {type}, {state}) \n\
+  a - get all; ({current}, {voltage}, {needed current}, {percentage}, {pwm}, {type}, {state}) \n\
     Battery types: 0 - None, 1 - LiIon, 2 - AGM; \n\
     Charging states: 0 - charging, 1 - idle, 2 - full, 3 - error \n\
   i?x - set needed current to x; (0 - 20A) \n\
@@ -84,9 +84,9 @@ private:
       case 'a': // get all data (comma separated)
         return (String)charger->getStringData(",");
       case 'x':
-        return charger->stop() ? (String)Response::Success : (String)Response::UnknownError;
+        return (String)(charger->stop() ? Response::Success : Response::UnknownError);
       case 'r':
-        return charger->reset() ? (String)Response::Success : (String)Response::UnknownError;
+        return (String)(charger->reset() ? Response::Success : Response::UnknownError);
       default:
         return (String)Response::WrongRequest;
     }

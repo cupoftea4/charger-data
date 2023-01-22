@@ -3,7 +3,7 @@
   * 1.  Request: "help" or "h";
   *     Response:  
   * "     To start charging set type of battery.;
-  *         a - get all; ({current}, {voltage}, {needed current}, {pwm}, {type}, {state})
+  *         a - get all; ({current}, {voltage}, {needed current}, {percentage}, {pwm}, {type}, {state})
   *           Battery types: 0 - None, 1 - LiIon, 2 - AGM;
   *           Charging states: 0 - charging, 1 - idle, 2 - full, 3 - error
   *         i?x - set needed current to x; (0 - 20A)
@@ -15,6 +15,7 @@
   * 2.  Request: {current}; Response: {float; (0 - 25)};
   *     Request: {voltage}; Response: {float; (0 - 15)};
   *     Request: {needed current}; Response: {float; (0 - 15)};
+  *     Request: {percentage}; Response: {float; (0 - 100)};
   *     Request: {pwm}; Response: {byte; (0 - 255)};
   *     Request: {type}; Response: {byte; (1 - 2)};
   *     Request: {state}; Response: {byte; (0 - 3)};
